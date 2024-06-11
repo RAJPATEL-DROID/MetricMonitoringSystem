@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Console Appender -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- File Appender for Server Logs -->
+    <appender name="bootstrap" class="ch.qos.logback.core.FileAppender">
+        <file>./Logs/Bootstrap.log</file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="server" class="ch.qos.logback.core.FileAppender">
+        <file>./Logs/APIEngine.log</file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="credential" class="ch.qos.logback.core.FileAppender">
+        <file>./Logs/Credential.log</file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}][%thread] [%-5level] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="discovery" class="ch.qos.logback.core.FileAppender">
+        <file>./Logs/Discovery.log</file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="provision" class="ch.qos.logback.core.FileAppender">
+        <file>./Logs/Provision.log</file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread]  [%-5level] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="utils" class="ch.qos.logback.core.FileAppender">
+        <file>./Logs/Utils.log</file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ConfigDB" class="ch.qos.logback.core.FileAppender">
+        <file>./Logs/ConfigDB.log</file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FileReader" class="ch.qos.logback.core.FileAppender">
+        <file>./Logs/FileReader.log</file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="Scheduler" class="ch.qos.logback.core.FileAppender">
+        <file>./Logs/Scheduler.log</file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ResponseProcessor" class="ch.qos.logback.core.FileAppender">
+        <file>./Logs/ResponseProcessor.log</file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ZMQ" class="ch.qos.logback.core.FileAppender">
+        <file>./Logs/ZMQ.log</file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <!-- Root Logger -->
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <!-- Logger for Server -->
+    <logger name="org.nmslite.apiserver.APIServer" level="trace" additivity="false">
+        <appender-ref ref="server"/>
+    </logger>
+
+    <!-- Logger for Credential  -->
+    <logger name="org.nmslite.apiserver.Credential" level="trace" additivity="false">
+        <appender-ref ref="credential"/>
+    </logger>
+
+    <!-- Logger for Provision  -->
+    <logger name="org.nmslite.apiserver.Provision" level="trace" additivity="false">
+        <appender-ref ref="provision"/>
+    </logger>
+
+    <!-- Logger for Discovery  -->
+    <logger name="org.nmslite.apiserver.Discovery" level="trace" additivity="false">
+        <appender-ref ref="discovery"/>
+    </logger>
+
+    <logger name="org.nmslite.utils.Utils" level="trace" additivity="false">
+        <appender-ref ref="utils"/>
+    </logger>
+
+    <logger name = "org.nmslite.db.ConfigDB" level="trace" additivity="false">
+        <appender-ref ref="ConfigDB"/>
+    </logger>
+
+    <!-- Logger for Server -->
+    <logger name="org.nmslite.engine.Scheduler" level="trace" additivity="false">
+        <appender-ref ref="Scheduler"/>
+    </logger>
+
+
+    <logger name="org.nmslite.engine.Receiver" level="trace" additivity="false">
+        <appender-ref ref="ResponseProcessor"/>
+    </logger>
+
+    <logger name="org.nmslite.server.ZMQRouter" level="trace" additivity="false">
+        <appender-ref ref="ZMQ"/>
+    </logger>
+
+
+    <logger name="org.nmslite.utils.FileReader" level="trace" additivity="false">
+        <appender-ref ref="FileReader"/>
+    </logger>
+
+    <logger name="org.nmslite.Bootstrap" level="trace" additivity="false">
+        <appender-ref ref="bootstrap"/>
+    </logger>
+
+
+</configuration>
